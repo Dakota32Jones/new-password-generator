@@ -1,10 +1,6 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
-function generatePassword() {
-  // TODO: Generate password and other logic here.
-}
-
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
@@ -105,3 +101,24 @@ var confirmUpperCase;
 var confirmLowerCase;
 
 // Add prompt for user to confirm how many characters they would like in their password.
+
+function generatePassword() {
+  var confirmLength = prompt(
+    "How many characters would you like your password to contain?"
+  );
+
+  // make sure to loop the prompt if the answers are outside of the criteria.
+
+  while (confirmLength <= 7 || confirmLength >= 129) {
+    alert(
+      "Password length must be between 8-128 characters. Please try again."
+    );
+    var confirmLength = prompt(
+      "How many characters would you like your password to contain?"
+    );
+  }
+}
+
+// make an alert to repeat back to the user how many characters they will have in their password.
+
+alert(`Your password will have ${confirmLength} characters`);
