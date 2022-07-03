@@ -125,4 +125,70 @@ function generatePassword() {
       "Would you like your password to contain uppercase letters? If YES, please hit OK. If not please hit cancel."
     );
   }
+  // if else statements for not meeting password criteria.
+  if (!confirmLower && !confirmUpper && !confirmNumber && !confirmSpecialChar) {
+    userChoices = alert(
+      "You must choose one of the 4 criteria. (Uppercase, Lowercase, Number, Special Characters)."
+    );
+    // there are 4 true options.
+  } else if (
+    confirmLower &&
+    confirmNumber &&
+    confirmSpecialChar &&
+    confirmUpper
+  ) {
+    userChoices = lowerCase.concat(upperCase, numbers, special);
+    console.log(userChoices);
+  }
+  // there are 3 true options
+  else if (confirmLower && confirmNumber && confirmUpper) {
+    userChoices = lowerCase.concat(upperCase, numbers);
+  } else if (confirmLower && confirmUpper && confirmSpecialChar) {
+    userChoices = lowerCase.concat(upperCase, special);
+  } else if (confirmLower && confirmNumber && confirmSpecialChar) {
+    userChoices = lowerCase.concat(numbers, special);
+  } else if (confirmUpper && confirmNumber && confirmSpecialChar) {
+    userChoices = upperCase.concat(numbers, special);
+
+    // two true options.
+  } else if (confirmLower && confirmUpper) {
+    userChoices = lowerCase.concat(upperCase);
+  } else if (confirmLower && confirmNumber) {
+    userChoices = lowerCase.concat(numbers);
+  } else if (confirmLower && confirmSpecialChar) {
+    userChoices = lowerCase.concat(special);
+  } else if (confirmUpper && confirmNumber) {
+    userChoices = upperCase.concat(numbers);
+  } else if (confirmUpper && confirmSpecialChar) {
+    userChoices = upperCase.concat(special);
+  } else if (confirmNumber && confirmSpecialChar) {
+    userChoices = numbers.concat(special);
+    // one true option
+  } else if (confirmLower) {
+    userChoices = lowerCase;
+  } else if (confirmUpper) {
+    userChoices = blankUpper.concat(upperCase);
+  } else if (confirmNumber) {
+    userChoices = numbers;
+  } else if (confirmSpecialChar) {
+    userChoices = special;
+  }
+
+  // empty variable for password length
+
+  var passwordBlank = [];
+
+  // need a loop for random selection from arrays
+
+  for (var i = 0; i < passwordLength; i++) {
+    var allChoices =
+      userChoices[Math.floor(Math.random() * userChoices.length)];
+    passwordBlank.push(allChoices);
+  }
+
+  // join password together and then return it.
+
+  var password = passwordBlank.join("");
+  console.log("Your password is: " + password);
+  return password;
 }
