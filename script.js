@@ -103,11 +103,9 @@ function generatePassword() {
   if (!passwordLength) {
     alert("Required Value");
   } else if (passwordLength < 8 || passwordLength > 128) {
-    passwordLength = prompt(
-      "Sorry you must choose a password that has 8-128 characters.Please try again."
+    passwordLength = alert(
+      "Sorry you must choose a password that has 8-128 characters. Please try again."
     );
-
-    console.log("Password length" + passwordLength);
   } else {
     confirmLower = confirm(
       "Would you like your password to contain lower case letters. If YES, please hit OK. If no, please hit cancel."
@@ -130,6 +128,7 @@ function generatePassword() {
     userChoices = alert(
       "You must choose one of the 4 criteria. (Uppercase, Lowercase, Number, Special Characters)."
     );
+
     // there are 4 true options.
   } else if (
     confirmLower &&
