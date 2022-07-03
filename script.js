@@ -95,7 +95,7 @@ var alphaUpper = [
 // Declare variables
 
 var confirmLength = "";
-var confrimSpecialCharacter;
+var confirmSpecialCharacter;
 var confirmNumericCharacter;
 var confirmUpperCase;
 var confirmLowerCase;
@@ -122,3 +122,41 @@ function generatePassword() {
 // make an alert to repeat back to the user how many characters they will have in their password.
 
 alert(`Your password will have ${confirmLength} characters`);
+
+// Setting the criteria for the password
+
+var confirmSpecialCharacter = confirm(
+  "Click OK to confirm if you would like special characters. If not click Cancel."
+);
+var confirmNumericCharacter = confirm(
+  "Click OK to confirm if you would like numeric characters. If not click Cancel."
+);
+var confirmLowerCase = confirm(
+  "Click OK to confirm if you would like lowercase characters. If not click Cancel."
+);
+var confirmUpperCase = confirm(
+  "Click OK to confirm if you would like uppercase characters. If not click Cancel."
+);
+
+// need to loop if the password does not meet the password criteria.
+
+while (
+  confirmUpperCase === false &&
+  confirmNumericCharacter === false &&
+  confirmLowerCase === false &&
+  confirmSpecialCharacter === false
+) {
+  alert("You must choose at lease one parameter");
+  var confirmSpecialCharacter = confirm(
+    "Click OK to confirm if you would like special characters. If not click Cancel."
+  );
+  var confirmNumericCharacter = confirm(
+    "Click OK to confirm if you would like numeric characters. If not click Cancel."
+  );
+  var confirmLowerCase = confirm(
+    "Click OK to confirm if you would like lowercase characters. If not click Cancel."
+  );
+  var confirmUpperCase = confirm(
+    "Click OK to confirm if you would like uppercase characters. If not click Cancel."
+  );
+}
